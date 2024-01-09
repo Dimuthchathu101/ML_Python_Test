@@ -57,4 +57,8 @@ coreml_model = coremltools.converters.keras.convert(model,input_names = ['image'
 
 coreml_model.author = 'Dimuth C Bandara'
 coreml_model.license = 'MIT'
-coreml_model.short_description = 'Hello World'
+coreml_model.short_description = 'Predicts the handwriter character passed in as a number between 1-9'
+coreml_model.input_descriptioin['image'] = '28 into 28'
+coreml_model.output_description['output1'] = 'A Multiarray where hello world'
+
+coreml_model.save('C:\\Users\\USER\\Documents\\GitHub\\ML_Python_Test\\module_3_4\\handwriting_model.mlmodel')
