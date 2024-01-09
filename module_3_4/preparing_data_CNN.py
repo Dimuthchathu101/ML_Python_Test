@@ -1,5 +1,7 @@
 import keras
 from keras.datasets import mnist
+from keras.models import Sequential
+from keras.layers import Conv2D, MaxPooling2D, Dense, Dropout, Flatten
 
 pixel_width = 28
 pixel_height = 28
@@ -24,4 +26,10 @@ features_test /= 255
 labels_train = keras.utils.to_categorical(labels_train, num_of_classes)
 labels_test = keras.utils.to_categorical(labels_test, num_of_classes)
 
-print(labels_train[5])
+model = Sequential()
+model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=input_shape))
+print("POST CONV2D", model.output_shape)
+model.add(MaxPooling2D(pool_size=(2, 2)))
+print("POST MaxPooling2D", model.output_shape)
+model.add(Dropout(0.25))
+print("POST Dropout", model.output_shape)
